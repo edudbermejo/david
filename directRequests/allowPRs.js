@@ -1,5 +1,5 @@
 const noPRsMessage = `As you please. From now on anyone posting PRs in this channel will be ~terminated~ removed.`
-const yesPRsMessage = `As you command. We will allow PRs in this channel from now on.`
+const yesPRsMessage = `As you command. I will allow PRs in this channel from now on.`
 
 const regexPattern = /allow PRs/gi
 

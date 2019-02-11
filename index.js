@@ -4,6 +4,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 
 const { directRequests } = require('./directRequests')
+const { gossips } = require('./gossips')
 const { db } = require('./database/mongo')
 
 const app = express()
@@ -21,18 +22,31 @@ slackEvents.on('app_mention', (event) => { // TODO seems not to be working, wort
 })
 
 slackEvents.on('message', (event) => {
-  let nameRegex = /david/gi
+  let nameRegex = /(^|\s)david($|,|\s)/gi
 
-  if (nameRegex.test(event.text)) {
-    directRequests.some(directRequest => {
-      if (directRequest.testRegex(event.text)) {
-        directRequest.exec({web, event, db})
-        return true;
-      } else {
-        return false
-      }
-    })
+  if (!event.bot_id && event.bot_id !== 'BG1FGRWKS') {
+    if (nameRegex.test(event.text)) {
+      directRequests.some(directRequest => {
+        if (directRequest.testRegex(event.text)) {
+          directRequest.exec({web, event, db})
+          return true;
+        } else {
+          return false
+        }
+      })
+    } else {
+      gossips.some(gossip => {
+        if (gossip.testRegex(event.text)) {
+          gossip.exec({web, event, db})
+          return true;
+        } else {
+          return false
+        }
+      })
+    }
   }
 })
+
+slackEvents.on('app_rate_limited', console.error)
 
 app.listen(port, () => console.log(`Server listening on port ${port}`))
