@@ -2,10 +2,10 @@ const helpMessage = `
 Hi! How can I be on service?
 `
 
-const regexPattern = /^david$/i
+const regexPattern = /.*/gi
 
-exports.exec = ({web, channel}) => {
-  web.chat.postMessage({ text: helpMessage, channel }).catch(console.error);
+exports.exec = ({web, event}) => {
+  web.chat.postMessage({ text: helpMessage, channel: event.channel }).catch(console.error);
 }
 
 exports.testRegex = (text) => {
