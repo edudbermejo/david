@@ -1,0 +1,32 @@
+{
+  "name": "david",
+  "version": "0.2.0",
+  "description": "Wayland Corporation brings you the latest android",
+  "main": "index.js",
+  "dependencies": {
+    "@slack/client": "^4.8.0",
+    "@slack/events-api": "^2.1.1",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edudbermejo/david.git"
+  },
+  "keywords": [
+    "slack",
+    "bot",
+    "david"
+  ],
+  "author": "edudbermejo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edudbermejo/david/issues"
+  },
+  "homepage": "https://github.com/edudbermejo/david#readme"
+}
