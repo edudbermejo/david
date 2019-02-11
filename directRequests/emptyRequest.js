@@ -1,11 +1,11 @@
 const helpMessage = `
-Hi! How can I be on service?
+Hi! How can I be of service?
 `
 
-const regexPattern = /^david$/i
+const regexPattern = /.*/gi
 
-exports.exec = ({web, channel}) => {
-  web.chat.postMessage({ text: helpMessage, channel }).catch(console.error);
+exports.exec = async ({web, event}) => {
+  web.chat.postMessage({ text: helpMessage, channel: event.channel }).catch(console.error);
 }
 
 exports.testRegex = (text) => {

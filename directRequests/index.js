@@ -1,3 +1,5 @@
 const emptyRequest = require('./emptyRequest')
+const allowPRs = require('./allowPRs')
 
-exports.directRequests = [ emptyRequest ]
+// Mind the order, the first match will be the winner
+exports.directRequests = [ allowPRs, emptyRequest ]
